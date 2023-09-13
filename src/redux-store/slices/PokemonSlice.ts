@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AppTypeInitialState } from "../../utils/Types"
+import { PokemonTypeInitialState } from "../../utils/Types"
+import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 
-const initialState: AppTypeInitialState = {
-
+const initialState: PokemonTypeInitialState = {
+    allPokemon: undefined,
 };
 
 export const PokemonSlice = createSlice({
@@ -10,7 +11,13 @@ export const PokemonSlice = createSlice({
     initialState,
     reducers:{
 
-    } 
+    },
+    extraReducers: (builder) => {
+        // add case thunk state ie fulfilled, pending or rejected
+        builder.addCase(getInitialPokemonData.fulfilled, (state, action)=>{
+            state.allPokemon = action.payload; // adding data.result array from API to the state
+        })
+    }
 
 })
 
