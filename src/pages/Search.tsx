@@ -3,10 +3,12 @@ import Wrapper from "../sections/Wrapper";
 import { useAppDispatch, useAppSelector } from "../redux-store/hook";
 import { getInitialPokemonData } from "../redux-store/reducers/getInitialPokemonData";
 import { getPokemonData } from "../redux-store/reducers/getPokemonData";
+import PokemonCardGrid from "../components/PokemonCardGrid";
 
 function Search() {
   const dispatch = useAppDispatch();
   const allPokemon = useAppSelector((state) => state.pokemon.allPokemon);
+  const randomPokemons = useAppSelector((state) => state.pokemon.randomPokemons);
 
   useEffect(() => {
     dispatch(getInitialPokemonData()); // loaded all pokemon from API
@@ -28,7 +30,15 @@ function Search() {
     }
   }, [allPokemon, dispatch]);
 
-  return <div>Search</div>;
+  return <>
+    <div className="search">
+      <input type="text" name="" id="" />
+      <PokemonCardGrid  pokemons={randomPokemons!}/>
+
+    </div>
+  </>;
 }
 
 export default Wrapper(Search);
+
+// the exclamation mark in randomPokemons is to show that this is not empty in typescript
