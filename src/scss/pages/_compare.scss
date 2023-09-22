@@ -1,0 +1,7 @@
+.compare{
+    display: grid;
+    grid-template-columns: 49% 49%; // the remaining 1% act as padding
+    height: 100%;
+    gap: 1rem;
+    padding: 1rem;
+}

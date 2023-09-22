@@ -1,10 +1,21 @@
-
-import Wrapper from '../sections/Wrapper'
+import CompareContainer from "../components/CompareContainer";
+import { useAppSelector } from "../redux-store/hook";
+import Wrapper from "../sections/Wrapper";
 
 function Compare() {
+  const compareQueue = useAppSelector((state) => state.pokemon.compareQueue);
   return (
-    <div>Compare</div>
-  )
+    <div className="compare">
+      <CompareContainer
+        pokemonEl={compareQueue[0]}
+        isEmpty={compareQueue.length < 1}
+      />
+      <CompareContainer
+        pokemonEl={compareQueue[1]}
+        isEmpty={compareQueue.length < 2}
+      />
+    </div>
+  );
 }
 
-export default Wrapper(Compare)
+export default Wrapper(Compare);
