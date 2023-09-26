@@ -34,3 +34,14 @@ export interface pokemonTypeInterface {
 export interface userPokemonsType extends generatedPokemonType{
     firebaseId: string;
 }
+
+export interface pokemonStatsType{
+    name: string;
+    value: string;
+}
+
+export type pokemonStatType =
+  | "vulnerable"
+  | "weakness"
+  | "strength"
+  | "resistance";
