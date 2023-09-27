@@ -1,10 +1,13 @@
-
-import Wrapper from '../sections/Wrapper'
+import Wrapper from "../sections/Wrapper";
+import { useAppSelector } from "../redux-store/hook";
+import Login from "../components/Login";
 
 function Mylist() {
-  return (
-    <div>Mylist</div>
-  )
+  const userInfo = useAppSelector((state) => state.app.userInfo);
+  
+  return <div className="list">
+    <Login />
+  </div>;
 }
 
-export default Wrapper(Mylist)
+export default Wrapper(Mylist);

@@ -3,6 +3,7 @@ import { AppTypeInitialState } from "../../utils/Types";
 
 const initialState: AppTypeInitialState = {
   toasts: [],
+  userInfo: undefined,
 };
 
 export const AppSlice = createSlice({
@@ -17,7 +18,10 @@ export const AppSlice = createSlice({
     clearToast: (state) => {
       state.toasts = [];
     },
+    setUserStatus: (state, action) => {
+        state.userInfo = action.payload;
+    }
   },
 });
 
-export const {setToast, clearToast} = AppSlice.actions;
+export const {setToast, clearToast, setUserStatus} = AppSlice.actions;
