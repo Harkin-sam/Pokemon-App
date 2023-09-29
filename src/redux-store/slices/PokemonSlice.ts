@@ -5,11 +5,14 @@ import {
 } from "../../utils/Types";
 import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 import { getPokemonData } from "../reducers/getPokemonData";
+import { getUserPokemons } from "../reducers/getUserPokemons";
+import { removePokemonFromUserList } from "../reducers/removePokemonFromUserList";
 
 const initialState: PokemonTypeInitialState = {
   allPokemon: undefined,
   randomPokemons: undefined,
   compareQueue: [],
+  userPokemons: [],
 };
 
 export const PokemonSlice = createSlice({
@@ -45,13 +48,24 @@ export const PokemonSlice = createSlice({
       state.allPokemon = action.payload; // adding data.result array from API to the state
     });
     builder.addCase(getPokemonData.fulfilled, (state, action) => {
-      state.randomPokemons = action.payload; // adding data.result array from API to the state
+      state.randomPokemons = action.payload; // adding random generated array
+    });
+    builder.addCase(getUserPokemons.fulfilled, (state, action) => {
+      state.userPokemons = action.payload!;
+    });
+    builder.addCase(removePokemonFromUserList.fulfilled, (state, action) => {
+      const userPokemons = [...state.userPokemons];
+      const index = userPokemons.findIndex(
+        (pokemon) => pokemon.firebaseId === action.payload?.id
+      );
+      userPokemons.splice(index, 1) // remove from array
+      state.userPokemons = userPokemons;
     });
   },
 });
 
-export const {addToCompare, removeFromCompare} = PokemonSlice.actions;
-
-
+export const { addToCompare, removeFromCompare } = PokemonSlice.actions;
 
 //Extrareducer is mostly used for async calls reducer for the store
+
+// '!"" tell TS specifically that this is not undefined

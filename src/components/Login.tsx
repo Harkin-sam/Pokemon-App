@@ -1,5 +1,4 @@
-import { signInWithPopup } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth/cordova";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { firebaseAuth, userRef, firebaseDB } from "../utils/FirebaseConfig";
 import { addDoc, getDocs,collection, query, where } from "firebase/firestore";

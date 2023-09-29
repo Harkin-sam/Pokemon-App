@@ -13,12 +13,23 @@ import Compare from "./pages/Compare";
 import Pokemon from "./pages/Pokemon";
 import { useAppDispatch, useAppSelector } from "./redux-store/hook";
 import { useEffect } from "react";
-import { clearToast } from "./redux-store/slices/AppSlice";
+import { clearToast, setUserStatus } from "./redux-store/slices/AppSlice";
+import { onAuthStateChanged } from "firebase/auth";
+import { firebaseAuth } from "./utils/FirebaseConfig";
 
 function App() {
   const toasts = useAppSelector((state) => state.app.toasts);
 
   const dispatch = useAppDispatch();
+
+  useEffect(()=>{
+    // this will grab the firebase authentication after refresh if the user is already logged in
+    onAuthStateChanged(firebaseAuth, (currentUser)=>{
+      if(currentUser){
+        dispatch(setUserStatus({email:currentUser.email}))
+      }
+    })
+  },[dispatch])
 
   useEffect(() => {
     if (toasts.length) {

@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux-store/hook";
 import { addToCompare } from "../redux-store/slices/PokemonSlice";
 import { setToast } from "../redux-store/slices/AppSlice";
-
-
+import { addPokemonToList } from "../redux-store/reducers/addPokemonToList";
+import { removePokemonFromUserList } from "../redux-store/reducers/removePokemonFromUserList";
 
 function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
   const location = useLocation();
@@ -24,18 +24,34 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
                 <div className="pokemon-card-list">
                   {location.pathname.includes("pokemon") ||
                   location.pathname.includes("/search") ? (
-                    <FaPlus className="plus" />
+                    <FaPlus
+                      className="plus"
+                      onClick={() => dispatch(addPokemonToList(data))}
+                    />
                   ) : (
-                    <FaTrash className="trash" />
+                    <FaTrash
+                      className="trash"
+                      onClick={async () => {
+                        await dispatch(
+                          removePokemonFromUserList({ id: data.firebaseId! })
+                        );
+                        dispatch(setToast("Pokemon removed successfully!"));
+                      }}
+                    />
                   )}
                 </div>
 
                 <div className="pokemon-card-compare">
-                  <IoGitCompare onClick={()=>{
-
-                    dispatch(addToCompare(data))
-                    dispatch(setToast(`${data.name} has been added to compare Queue.`))
-                    }}/>
+                  <IoGitCompare
+                    onClick={() => {
+                      dispatch(addToCompare(data));
+                      dispatch(
+                        setToast(
+                          `${data.name} has been added to compare Queue.`
+                        )
+                      );
+                    }}
+                  />
                 </div>
 
                 <h3 className="pokemon-card-title">{data.name}</h3>
