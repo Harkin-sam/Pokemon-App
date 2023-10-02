@@ -5,6 +5,7 @@ import { pokemonTypes } from "../utils/pokemonTypes";
 import { useAppDispatch } from "../redux-store/hook";
 import { removeFromCompare } from "../redux-store/slices/PokemonSlice";
 import { useNavigate } from "react-router-dom";
+import { addPokemonToList } from "../redux-store/reducers/addPokemonToList";
 
 function CompareContainer({
   pokemonEl = undefined,
@@ -90,6 +91,9 @@ function CompareContainer({
     );
   };
 
+
+  
+
   return (
     <div className="compare-container">
       {isEmpty && (
@@ -137,7 +141,7 @@ function CompareContainer({
             </div>
           </div>
           <div className="compare-action-buttons">
-            <button className="compare-btn">Add</button>
+            <button className="compare-btn"  onClick={() => dispatch(addPokemonToList(pokemonEl))}>Add</button>
             <button className="compare-btn" onClick={()=> navigate(`/pokemon/${pokemonEl.id}`)}>View</button>
             <button className="compare-btn" onClick={()=>dispatch(removeFromCompare({id: pokemonEl.id}))}>Remove</button>
           </div>

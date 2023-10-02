@@ -8,3 +8,5 @@ export const debounce = (fn: Function, timeout: number) => {
     }, timeout);
   };
 };
+
+//Debouncing prevents extra activations or slow functions from triggering too often
