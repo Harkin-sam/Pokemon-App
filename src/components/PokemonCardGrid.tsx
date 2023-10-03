@@ -3,10 +3,11 @@ import { IoGitCompare } from "react-icons/io5";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux-store/hook";
-import { addToCompare } from "../redux-store/slices/PokemonSlice";
-import { setToast } from "../redux-store/slices/AppSlice";
+import { addToCompare, setCurrentPokemon } from "../redux-store/slices/PokemonSlice";
+import { setPokemonTab, setToast } from "../redux-store/slices/AppSlice";
 import { addPokemonToList } from "../redux-store/reducers/addPokemonToList";
 import { removePokemonFromUserList } from "../redux-store/reducers/removePokemonFromUserList";
+import { pokemonTabs } from "../utils/Constants";
 
 function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
   const location = useLocation();
@@ -57,11 +58,14 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
                 <h3 className="pokemon-card-title">{data.name}</h3>
 
                 <img
-                  src={`./src${data.image.substring(2)}`}
+                  src={`/src${data.image.substring(2)}`}
                   alt="pokemon"
                   loading="lazy"
                   className="pokemon-card-image"
-                  onClick={() => navigate(`/pokemon/${data.id}`)}
+                  onClick={() => {
+                    dispatch(setPokemonTab(pokemonTabs.description))
+                    dispatch(setCurrentPokemon(undefined))
+                    navigate(`/pokemon/${data.id}`)}}
                 />
 
                 <div className="pokemon-card-types">

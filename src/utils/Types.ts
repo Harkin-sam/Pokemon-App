@@ -1,45 +1,57 @@
 export interface AppTypeInitialState {
-    toasts: string[];
-    userInfo: undefined | {email: string};
+  toasts: string[];
+  userInfo: undefined | { email: string };
+  currentPokemonTab: string;
 }
 
 export interface PokemonTypeInitialState {
-    allPokemon: undefined | genericPokemonType[];
-    randomPokemons: undefined | generatedPokemonType[];
-    compareQueue: generatedPokemonType[];
-    userPokemons: userPokemonsType[];
+  allPokemon: undefined | genericPokemonType[];
+  randomPokemons: undefined | generatedPokemonType[];
+  compareQueue: generatedPokemonType[];
+  userPokemons: userPokemonsType[];
+  currentPokemon: currentPokemonType | undefined;
 }
 
+export interface currentPokemonType {
+  id: number;
+  name: string;
+  types: pokemonTypeInterface[];
+  image: string;
+  stats: pokemonStatsType[];
+  encounters: string[];
+  evolution: { level: number; pokemon: { name: string; url: string } }[];
+  pokemonAbilities: { abilities: string[]; moves: string[] };
+}
 
 export interface genericPokemonType {
-    name: string;
-    url: string;
+  name: string;
+  url: string;
 }
 
-export  interface generatedPokemonType {
-    name: string;
-    id: number;
-    image: string;
-    types: pokemonTypeInterface[]
+export interface generatedPokemonType {
+  name: string;
+  id: number;
+  image: string;
+  types: pokemonTypeInterface[];
 }
 
 export interface pokemonTypeInterface {
-    [key: string]: {
-        image: string;
-        resistance: string[];
-        strength: string[];
-        weakness: string[];
-        vulnerable: string[];
-    }
+  [key: string]: {
+    image: string;
+    resistance: string[];
+    strength: string[];
+    weakness: string[];
+    vulnerable: string[];
+  };
 }
 
-export interface userPokemonsType extends generatedPokemonType{
-    firebaseId: string;
+export interface userPokemonsType extends generatedPokemonType {
+  firebaseId: string;
 }
 
-export interface pokemonStatsType{
-    name: string;
-    value: string;
+export interface pokemonStatsType {
+  name: string;
+  value: string;
 }
 
 export type pokemonStatType =
@@ -49,6 +61,6 @@ export type pokemonStatType =
   | "resistance";
 
 export interface pokemonStatsType {
-    name: string;
-    value: string;
+  name: string;
+  value: string;
 }
