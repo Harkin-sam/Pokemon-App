@@ -1,0 +1,33 @@
+.pokemon-locations{
+    width: 100%;
+    height: 100%;
+    
+    .pokemon-locations-list{
+        display: grid;
+        color:white;
+        list-style-type: none;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 150px;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem;
+        overflow-y: scroll;
+        height: 80vh;
+
+        .pokemon-location{
+            height: 100%;
+            padding: 2rem;
+            font-size: large;
+            background-color: rgba(255, 255,255, 0.125);
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            text-transform: lowercase;
+        }
+
+    }
+}
