@@ -20,10 +20,18 @@
             border: none;
             background-color: var(--accent-color);
 
+            @include media("<=tablet"){
+                border-radius: 4rem;
+            }
+
             svg{
                 // react-icons consist of svgs
                 font-size: 3.5rem;
                 color: whitesmoke;
+
+                @include media("<=tablet"){
+                    font-size: 2rem;
+                }
             }
         }
 
@@ -31,6 +39,11 @@
             color: white;
             text-transform: uppercase;
             letter-spacing: 0.3rem;
+
+            @include media("<=tablet"){
+                font-size: 0.8rem;
+                letter-spacing: 0.1rem;
+            }
         }
     }
 

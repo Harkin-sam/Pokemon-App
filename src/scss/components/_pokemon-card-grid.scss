@@ -2,12 +2,26 @@
     max-height: 80vh;
     overflow-y: scroll;
 
+    @include media("<=tablet"){
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        }
+
     .pokemon-card-grid{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 4rem;
         margin: 4rem;
         margin-top: 2rem;
+        
+        @include media("<=tablet"){
+        display: grid;
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        place-items: center;
+        gap: 1.5rem;
+        }
 
         .pokemon-card{
             width: 250px;

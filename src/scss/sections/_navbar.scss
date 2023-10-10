@@ -1,6 +1,6 @@
 nav{
     display: grid;
-    grid-template-columns: 5rem auto 5rem;
+    grid-template-columns: 5rem 1fr 5rem;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.23);
 
     .block{
@@ -26,6 +26,8 @@ nav{
         border-bottom: none;
         padding: 0 5rem; //20rem
 
+       
+
         ul{
             display: grid;
             grid-template-columns: repeat(5, 20%);
@@ -33,6 +35,16 @@ nav{
             list-style-type: none;
             z-index: 1;
             position: relative;
+
+
+            @include media("<=tablet"){
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            
             a{
                 text-decoration: none;
                 color: white;
@@ -41,15 +53,28 @@ nav{
                 align-items: center;
                 border-radius: 1px solid transparent;
 
+                @include media("<=tablet"){
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
                 li{
                     text-transform: uppercase;
                     cursor: pointer;
                     font-weight: 500;
                     letter-spacing: 0.2rem;
+
+                    @include media("<=tablet"){
+                        font-size: 0.73rem;
+                    }
                 }
             }
+            
         }
     }
+
+        
 }
 
 .underline{
@@ -70,5 +95,9 @@ nav{
 
     &:nth-child(2){
         transition: calc(0.5s * 1.2) ease-in-out;
+    }
+
+    @include media("<=phone"){
+        
     }
 }
