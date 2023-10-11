@@ -22,6 +22,11 @@
         border-radius: 1rem;
         cursor: pointer;
 
+        @include media("<=phone"){
+            
+            font-size: 0.8rem;
+        }
+
         svg{
             font-size: 3rem;
         }

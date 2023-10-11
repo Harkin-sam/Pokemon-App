@@ -3,10 +3,18 @@ nav{
     grid-template-columns: 5rem 1fr 5rem;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.23);
 
+    @include media("<=phone"){
+        grid-template-columns: 1fr;
+    }
+
     .block{
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include media("<=phone"){
+            display: none;
+        }
 
         svg{
             color: white;
@@ -27,6 +35,10 @@ nav{
         padding: 0 5rem; //20rem
 
        
+        @include media("<=phone"){
+            padding: 1rem;
+        }
+
 
         ul{
             display: grid;
@@ -66,7 +78,7 @@ nav{
                     letter-spacing: 0.2rem;
 
                     @include media("<=tablet"){
-                        font-size: 0.73rem;
+                        font-size: 0.8rem;
                     }
                 }
             }
@@ -88,6 +100,8 @@ nav{
     mix-blend-mode: initial;
     pointer-events: none;
     transition: 0.5s ease-in-out;
+
+    
      
     &:nth-child(1){
         transition: calc(0.5s * 0.8) ease-in-out;

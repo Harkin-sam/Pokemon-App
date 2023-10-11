@@ -27,6 +27,11 @@
         overflow: hidden;
         padding-bottom: 10rem;
         position: relative;
+
+        @include media("<=phone"){
+            margin: 0 ;
+        }
+    
     }
 }
 

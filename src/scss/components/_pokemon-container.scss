@@ -2,6 +2,13 @@
     display: flex;
     margin-top: 3rem;
     justify-content: center;
+
+
+    @include media("<=tablet"){
+       float: right;
+        
+    }
+
     .outer-circle{
         display: flex;
         justify-content: center;
@@ -12,6 +19,11 @@
         border-radius: 50%;
         position: relative;
 
+        @include media("<=tablet"){
+            width: 18rem;
+            height: 18rem; 
+        }
+
         .inner-circle{
             height: 20rem;
             width: 20rem;
@@ -20,6 +32,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+
+        @include media("<=tablet"){
+            width: 16rem;
+            height: 16rem; 
+        }
 
             img{
             max-inline-size: 100%;
@@ -38,6 +56,11 @@
                 width: 0.3rem;
                 background-color: var(--accent-color);
                 transform: rotate(45deg);
+
+
+                @include media("<=tablet"){
+                    height: 19rem;
+                }
             }
         }
     }

@@ -43,6 +43,11 @@
             @include media("<=tablet"){
                 font-size: 0.8rem;
                 letter-spacing: 0.1rem;
+                text-align: center;
+            }
+
+            @include media("<=phone"){
+                text-align: center;
             }
         }
     }

@@ -8,21 +8,42 @@
     margin-top: 2rem;
     color: white;
 
+    @include media("<=phone"){
+        margin-top: 4rem;
+    }
+
     &-image{
         height: 15rem;
         border-radius: 50%;
         border: 0.3rem solid var(--accent-color);
         padding: 1rem;
+
+        @include media("<=phone"){
+            height: 12rem;
+        }
+
     }
+
 
     &-text{
         text-transform:capitalize;
         letter-spacing: 0.2rem;
         font-size: 1.2rem;
+
+        @include media("<=phone"){
+            font-size: 1rem;
+            letter-spacing: 0.01rem;
+        }
     }
 
     h1{
         font-size: 3rem;
+
+        
+        @include media("<=phone"){
+            font-size: 2rem;
+            
+        }
     }
 
     &-links{
