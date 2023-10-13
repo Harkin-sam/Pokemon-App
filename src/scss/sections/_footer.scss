@@ -3,10 +3,22 @@ footer{
     grid-template-columns: 5rem auto 5rem;
     border-top: 0.5px solid rgba(255, 255, 255, 0.23);
 
+    @include media("<=phone"){
+
+        grid-template-columns: 0rem auto 5rem;   
+    }
+
     .block{
         display: flex;
         justify-content: center;
         align-items: center;
+
+        @include media("<=phone"){
+
+            
+        }
+
+        
 
         svg{
             color: #e21b5a;
@@ -40,6 +52,11 @@ footer{
                 align-items: center;
                 cursor: pointer;
                 transition: 0.3s ease-in-out;
+
+                @include media("<=phone"){
+                    font-size: 0.55rem;
+                    letter-spacing: 0.1rem;
+                }
                 
                 &:hover{
                     background-color: var(--accent-color);

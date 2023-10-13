@@ -21,7 +21,7 @@ function Navbar() {
       route: "/pokemon",
     },
     {
-      name: "My List",
+      name: "MyList",
       route: "/list",
     },
     {

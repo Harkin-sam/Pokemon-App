@@ -9,7 +9,7 @@
     color: white;
 
     @include media("<=phone"){
-        margin-top: 4rem;
+        margin-top: 1rem;
     }
 
     &-image{

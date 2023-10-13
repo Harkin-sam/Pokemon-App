@@ -24,6 +24,11 @@
             height: 18rem; 
         }
 
+        @include media("<=phone"){
+            width: 10rem;
+            height: 10rem; 
+         }
+
         .inner-circle{
             height: 20rem;
             width: 20rem;
@@ -38,6 +43,10 @@
             width: 16rem;
             height: 16rem; 
         }
+        @include media("<=phone"){
+            width: 5rem;
+            height: 5rem; 
+         }
 
             img{
             max-inline-size: 100%;
@@ -61,6 +70,10 @@
                 @include media("<=tablet"){
                     height: 19rem;
                 }
+                @include media("<=phone"){
+    
+                    height: 7rem; 
+                 }
             }
         }
     }

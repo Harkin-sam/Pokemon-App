@@ -33,6 +33,12 @@
       letter-spacing: 0.1rem;
     }
     background-color: rgba(255, 255,255, 0.125);
+
+    @include media("<=phone"){
+     width: 70%;
+     font-size: 0.6rem;
+  }
+    
   }
   
   .stats {
@@ -41,7 +47,11 @@
     bottom: 8rem;
 
     @include media("<=tablet"){
-      top: 15rem;
+      top: 13rem;
+  }
+    @include media("<=phone"){
+      font-size: 0.7rem;
+      top: 10rem;
   }
 
     ul {
@@ -103,12 +113,15 @@
     right: 2rem;
     color: white;
     padding: 1rem;
-    width: 30rem;
+    width: 25rem;
 
     @include media("<=tablet"){
-      width: 25rem;
+      width: 15rem;
       letter-spacing: 0.01rem;
   }
+  @include media("<=phone"){
+    font-size: 0.8rem;
+ }
 
     &::before {
       height: 0.3rem;
@@ -141,6 +154,10 @@
       @include media("<=tablet"){
         bottom: -2.5rem;
     }
+
+    @include media("<=phone"){
+      right: 0rem;
+   }
   
 
       &:hover {

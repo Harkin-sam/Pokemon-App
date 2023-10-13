@@ -25,6 +25,11 @@
         overflow-y: scroll;
         overflow-x: hidden;
 
+        @include media("<=tablet"){
+            
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
         .move{
             height: 100%;
             padding: 2rem;

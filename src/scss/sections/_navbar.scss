@@ -80,6 +80,9 @@ nav{
                     @include media("<=tablet"){
                         font-size: 0.8rem;
                     }
+                    @include media("<=phone"){
+                        font-size: 0.65rem;
+                    }
                 }
             }
             
