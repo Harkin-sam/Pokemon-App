@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { getDoc, getDocs, query } from "firebase/firestore";
+import { getDocs, query } from "firebase/firestore";
 import { pokemonListRef } from "../../utils/FirebaseConfig";
 import { where } from "firebase/firestore";
 import { userPokemonsType } from "../../utils/Types";
@@ -9,6 +9,7 @@ import { defaultImages, images } from "../../utils/getPokemonImages";
 
 export const getUserPokemons = createAsyncThunk(
   "pokemon/userList",
+  //@ts-ignore
   async (args, { getState }) => {
     try {
       const {

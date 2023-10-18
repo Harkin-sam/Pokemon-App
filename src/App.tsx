@@ -82,3 +82,9 @@ function App() {
 }
 
 export default App;
+
+
+//hosting
+//npm i netlify-cli -g 
+
+//npx deploy --prod

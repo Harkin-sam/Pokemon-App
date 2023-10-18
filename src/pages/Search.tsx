@@ -70,7 +70,10 @@ const handleChange = debounce((value: string) => getPokemon(value), 300); // thi
           placeholder="Search Pokemon"
           onChange={(e) => handleChange(e.target.value)}
         />
-        <PokemonCardGrid pokemons={randomPokemons!} />
+      
+        {//@ts-ignore
+          <PokemonCardGrid pokemons={randomPokemons} />
+          }
       </div>
     </>
   );

@@ -6,15 +6,14 @@ import PokemonCardGrid from "../../components/PokemonCardGrid";
 function Evolution() {
   const dispatch = useAppDispatch();
   const [isloaded, setIsLoaded] = useState(false);
-  const {currentPokemon, randomPokemons}  = useAppSelector(
+  const { currentPokemon, randomPokemons } = useAppSelector(
     (state) => state.pokemon
   );
-
 
   useEffect(() => {
     const fetchData = async () => {
       const pokemonEV = currentPokemon?.evolution.map(({ pokemon }) => pokemon);
-      console.log(pokemonEV)
+      console.log(pokemonEV);
       await dispatch(getPokemonData(pokemonEV!));
       setIsLoaded(true);
     };
@@ -23,7 +22,9 @@ function Evolution() {
 
   return (
     <div className="page">
-      {isloaded && <PokemonCardGrid pokemons={randomPokemons!} />}
+      { //@ts-ignore
+      isloaded && <PokemonCardGrid pokemons={randomPokemons!} />
+      }
     </div>
   );
 }

@@ -1,3 +1,15 @@
+# TITLE: POKEMON DEX APP
+This responsive fun app is for generating random pokemon cards from Pokemon API, compare them, access & manage selected card attributes, save and delete selected card to/from user account, firebase OAuth for user login /registration 
+
+# TECHNOLOGIES
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `REACT`
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `SCSS`
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `TYPESCRIPT`
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `FIREBASE`
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `FRAMER MOTION`
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `AXIOS`
+- ![#1589F0](https://www.iconsdb.com/icons/download/color/1589F0/circle-16.png) `REACT-TOASTIFY`
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

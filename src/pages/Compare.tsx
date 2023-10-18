@@ -7,10 +7,12 @@ function Compare() {
   return (
     <div className="compare">
       <CompareContainer
+      //@ts-ignore
         pokemonEl={compareQueue[0]}
         isEmpty={compareQueue.length < 1}
       />
       <CompareContainer
+      //@ts-ignore
         pokemonEl={compareQueue[1]}
         isEmpty={compareQueue.length < 2}
       />
