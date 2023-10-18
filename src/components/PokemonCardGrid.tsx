@@ -3,11 +3,16 @@ import { IoGitCompare } from "react-icons/io5";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../redux-store/hook";
-import { addToCompare, setCurrentPokemon } from "../redux-store/slices/PokemonSlice";
+import {
+  addToCompare,
+  setCurrentPokemon,
+} from "../redux-store/slices/PokemonSlice";
 import { setPokemonTab, setToast } from "../redux-store/slices/AppSlice";
 import { addPokemonToList } from "../redux-store/reducers/addPokemonToList";
 import { removePokemonFromUserList } from "../redux-store/reducers/removePokemonFromUserList";
 import { pokemonTabs } from "../utils/Constants";
+
+import { motion } from "framer-motion";
 
 function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
   const location = useLocation();
@@ -19,9 +24,15 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
       <div className="pokemon-card-grid">
         {pokemons &&
           pokemons.length > 0 &&
-          pokemons.map((data: any) => {
+          pokemons.map((data: any, i: number) => {
             return (
-              <div className="pokemon-card" key={data.id}>
+              <motion.div
+                className="pokemon-card"
+                key={data.id}
+                initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
+                animate={{ opacity: 1, translateX: 0, translateY: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.1 }} // using index i to  make stagger effect with delay object
+              >
                 <div className="pokemon-card-list">
                   {location.pathname.includes("pokemon") ||
                   location.pathname.includes("/search") ? (
@@ -63,9 +74,10 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
                   loading="lazy"
                   className="pokemon-card-image"
                   onClick={() => {
-                    dispatch(setPokemonTab(pokemonTabs.description))
-                    dispatch(setCurrentPokemon(undefined))
-                    navigate(`/pokemon/${data.id}`)}}
+                    dispatch(setPokemonTab(pokemonTabs.description));
+                    dispatch(setCurrentPokemon(undefined));
+                    navigate(`/pokemon/${data.id}`);
+                  }}
                 />
 
                 <div className="pokemon-card-types">
@@ -90,7 +102,7 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
                     }
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
       </div>
