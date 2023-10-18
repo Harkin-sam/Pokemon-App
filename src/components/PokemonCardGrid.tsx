@@ -29,7 +29,7 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
               <motion.div
                 className="pokemon-card"
                 key={data.id}
-                initial={{ opacity: 0, translateX: i % 2 === 0 ? -50 : 50, translateY: -50 }}
+                initial={{ opacity: 0, translateX: i % 2 === 0 ? -50: 50, translateY: -50 }}
                 animate={{ opacity: 1, translateX: 0, translateY: 0 }}
                 transition={{ duration: 0.3, delay: i * 0.1 }} // using index i to  make stagger effect with delay object
               >
