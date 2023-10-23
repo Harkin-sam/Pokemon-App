@@ -1,4 +1,5 @@
-# TITLE: POKEMON DEX APP
+# TITLE: POKEMON DEX APP 
+link: https://pokemon-app-seven-lyart.vercel.app/pokemon/1
 This responsive fun app is for generating random pokemon cards from Pokemon API, compare them, access & manage selected card attributes, save and delete selected card to/from user account, firebase OAuth for user login /registration 
 
 # TECHNOLOGIES USED
